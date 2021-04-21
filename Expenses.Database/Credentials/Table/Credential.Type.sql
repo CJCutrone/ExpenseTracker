@@ -7,6 +7,6 @@
 	CONSTRAINT [PK_Expenses.CredentialType]
 		PRIMARY KEY	CLUSTERED ([Id]),
 	CONSTRAINT [UQ_Expenses.CredentialType]
-		UNIQUE CLUSTERED ([Name], [Code])
+		UNIQUE ([Name], [Code])
 )
 GO

@@ -7,7 +7,7 @@
 	CONSTRAINT [PK_Expenses.User]
 		PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [UQ_Expenses.User]
-		UNIQUE CLUSTERED ([Username], [Email]),
+		UNIQUE ([Username], [Email]),
 	CONSTRAINT [FK_Expenses.User_Expenses.Role]
 		FOREIGN KEY ([RoleId]) REFERENCES [Expenses].[Role]([Id])
 )

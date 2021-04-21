@@ -1,0 +1,12 @@
+﻿CREATE SCHEMA [Expenses]
+	AUTHORIZATION [dbo]
+GO
+
+GRANT
+	EXECUTE, 
+	INSERT, 
+	SELECT,
+    UPDATE
+ON SCHEMA::[Expenses]
+TO [API];
+GO

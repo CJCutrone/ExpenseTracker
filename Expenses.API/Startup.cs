@@ -1,3 +1,5 @@
+using Expenses.API;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,9 +11,7 @@ namespace Expenses
     {
         private readonly IConfiguration configuration;
 
-        public Startup(
-            IConfiguration configuration
-        )
+        public Startup(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
@@ -19,7 +19,9 @@ namespace Expenses
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services
+                .AddValidatorsFromAssembly(Sentinel.Assembly, ServiceLifetime.Scoped)
+                .AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

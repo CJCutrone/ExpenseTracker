@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="fc63192c-3695-45f2-bb34-0fd739a0e1c4" ChangeDateTime="04/28/2021 14:26:55">
+    <Property Name="ElementName" Value="[Expenses].[MostRecentCredentials]" />
+    <Property Name="ElementType" Value="SqlView" />
+    <Property Name="ParentElementName" Value="[Expenses]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[MostRecentCredentialTypes]" />
+  </Operation>
+</Operations>

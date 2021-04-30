@@ -67,6 +67,8 @@
     <Folder Include="%40Deployment\Population" />
     <Folder Include="%40Deployment\Population\Credential" />
     <Folder Include="Credentials\Stored Procedure" />
+    <Folder Include="Credentials\View" />
+    <Folder Include="%40Publish\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="%40Setup\Roles\API.sql" />
@@ -75,6 +77,7 @@
     <Build Include="Credentials\Table\Credential.sql" />
     <Build Include="Credentials\Stored Procedure\GenerateResetToken.sql" />
     <Build Include="Users\Table\Role.sql" />
+    <Build Include="Credentials\View\MostRecentCredentialTypes.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Credentials\Table\Credential.Type.sql" />
@@ -82,5 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="%40Deployment\Population\PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Expenses.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="%40Publish\Expenses.Database.publish.xml" />
   </ItemGroup>
 </Project>

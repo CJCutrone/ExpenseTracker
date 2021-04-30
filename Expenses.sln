@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expenses.API", "Expenses.AP
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Expenses.Database", "Expenses.Database\Expenses.Database.sqlproj", "{7AFEA965-52CB-4BC9-A851-DF35B052AFF6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expenses.Data.Access", "Expenses.Data.Access\Expenses.Data.Access.csproj", "{A9ABB1B6-11C7-4467-82D3-35E3EACDCB0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expenses.Data.Model", "Expenses.Data.Model\Expenses.Data.Model.csproj", "{AE1ED299-E05C-424F-A964-43F7377FA2BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{7AFEA965-52CB-4BC9-A851-DF35B052AFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AFEA965-52CB-4BC9-A851-DF35B052AFF6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7AFEA965-52CB-4BC9-A851-DF35B052AFF6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A9ABB1B6-11C7-4467-82D3-35E3EACDCB0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9ABB1B6-11C7-4467-82D3-35E3EACDCB0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9ABB1B6-11C7-4467-82D3-35E3EACDCB0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9ABB1B6-11C7-4467-82D3-35E3EACDCB0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1ED299-E05C-424F-A964-43F7377FA2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1ED299-E05C-424F-A964-43F7377FA2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1ED299-E05C-424F-A964-43F7377FA2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1ED299-E05C-424F-A964-43F7377FA2BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

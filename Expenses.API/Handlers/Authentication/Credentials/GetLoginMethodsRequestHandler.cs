@@ -1,4 +1,4 @@
-﻿using Expenses.API.Controllers.Authentication.Request;
+﻿using Expenses.API.Controllers.Authentication.Credentials.Request;
 using Expenses.Data.Access.Database;
 using Expenses.Data.Access.Queries.Authentication.Credentials;
 using Expenses.Data.Model.Authentication.Credentials;

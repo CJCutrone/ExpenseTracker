@@ -1,4 +1,4 @@
-﻿using Expenses.API.Controllers.Authentication.Request;
+﻿using Expenses.API.Controllers.Authentication.Credentials.Request;
 using Expenses.API.Validators.Authentication.Model;
 using FluentValidation;
 

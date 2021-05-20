@@ -1,8 +1,14 @@
 ﻿using Expenses.API.Controllers.Authentication.Credentials.Request;
 using Expenses.API.Controllers.Authentication.Credentials.Response;
+using Expenses.API.Utilities.Credentials;
 using Expenses.Data.Access.Database;
 using Expenses.Data.Access.Queries.Authentication;
+using Expenses.Data.Access.Queries.Authentication.Credentials;
+using Expenses.Data.Model.Authentication.Credentials;
+using Expenses.Data.Model.Lookups.Authentication.Credentials;
 using MediatR;
+using System;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,9 +34,12 @@ namespace Expenses.API.Handlers.Authentication.Credentials
                 return new GeneratePasswordResetResponse() { IsSuccess = true };
             }
 
+            var token = Guid.NewGuid();
+            var credential = CredentialGenerator.GenerateTokenCredential(token);
+            credential.User = user;
+            credential.CreatedBy = user;
 
-
-            // generate token
+            await this.Database.PrepareAndExecute(new InsertNewCredentialQuery(), credential);
 
             // send email to user
 

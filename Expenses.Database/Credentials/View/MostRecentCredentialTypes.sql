@@ -9,7 +9,7 @@ FROM (
 		cred.[CredentialTypeId],
 		MAX(cred.[CreatedOn]) [CreatedOn]
 	FROM [Expenses].[Credential] cred
-	WHERE cred.[ExpiredOn] IS NULL
-		OR cred.[ExpiredOn] >= SYSDATETIMEOFFSET()
+	WHERE cred.[ExpiresOn] IS NULL
+		OR cred.[ExpiresOn] >= SYSDATETIMEOFFSET()
 	GROUP BY cred.[UserId], cred.[CredentialTypeId]
 ) latest;

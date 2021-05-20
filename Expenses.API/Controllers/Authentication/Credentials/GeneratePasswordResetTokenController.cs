@@ -23,6 +23,6 @@ namespace Expenses.API.Controllers.Authentication.Credentials
         [HttpPost]
         [Route("api/user/{email:required}/reset")]
         public async Task<GeneratePasswordResetResponse> Get(string email)
-            => await this.mediator.Send(new GeneratePasswordResetRequest(new User() { Email = email }));
+            => await this.mediator.Send(new GeneratePasswordResetTokenRequest(new User() { Email = email }));
     }
 }

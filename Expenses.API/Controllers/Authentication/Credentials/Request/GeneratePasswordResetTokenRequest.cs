@@ -4,12 +4,12 @@ using MediatR;
 
 namespace Expenses.API.Controllers.Authentication.Credentials.Request
 {
-    public class GeneratePasswordResetRequest
+    public class GeneratePasswordResetTokenRequest
         : IRequest<GeneratePasswordResetResponse>
     {
         public readonly User User;
 
-        public GeneratePasswordResetRequest(User user)
+        public GeneratePasswordResetTokenRequest(User user)
         {
             this.User = user;
         }

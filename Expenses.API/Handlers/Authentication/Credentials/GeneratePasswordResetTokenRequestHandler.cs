@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Expenses.API.Handlers.Authentication.Credentials
 {
     public class GeneratePasswordResetTokenRequestHandler
-        : IRequestHandler<GeneratePasswordResetRequest, GeneratePasswordResetResponse>
+        : IRequestHandler<GeneratePasswordResetTokenRequest, GeneratePasswordResetResponse>
     {
         public IExpenseDatabase Database;
 
@@ -18,7 +18,7 @@ namespace Expenses.API.Handlers.Authentication.Credentials
             this.Database = database;
         }
 
-        public async Task<GeneratePasswordResetResponse> Handle(GeneratePasswordResetRequest request, CancellationToken cancellationToken)
+        public async Task<GeneratePasswordResetResponse> Handle(GeneratePasswordResetTokenRequest request, CancellationToken cancellationToken)
         {
             var user = await this.Database.PrepareAndExecute(new GetUserByEmailQuery(), request.User);
             if (user.Id == null)

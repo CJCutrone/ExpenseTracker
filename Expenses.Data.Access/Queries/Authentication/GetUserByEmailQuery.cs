@@ -50,12 +50,12 @@ SELECT
     u.[Id],
     u.[Username],
     u.[Email],
-    r.[Id] as [RoleId]
+    r.[Id] as [RoleId],
     r.[Code] as [RoleCode]
 FROM [Expenses].[User] u
 INNER JOIN [Expenses].[Role] r
     ON r.[Id] = u.[RoleId]
-WHERE users.[Email] = @email;
+WHERE u.[Email] = @email;
 ";
         #endregion
     }

@@ -2,7 +2,7 @@
 using Expenses.API.Validators.Model.Authentication;
 using FluentValidation;
 
-namespace Expenses.API.Validators.Request.Authentication
+namespace Expenses.API.Validators.Request.Authentication.Credentials
 {
     public class GetLoginMethodsRequestValidator
         : AbstractValidator<GetLoginMethodsRequest>

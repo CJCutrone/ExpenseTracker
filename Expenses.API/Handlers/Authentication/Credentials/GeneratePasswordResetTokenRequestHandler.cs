@@ -1,12 +1,15 @@
 ﻿using Expenses.API.Controllers.Authentication.Credentials.Request;
 using Expenses.API.Controllers.Authentication.Credentials.Response;
 using Expenses.API.Utilities.Credentials;
+using Expenses.API.Utilities.Credentials.Configuration;
+using Expenses.API.Utilities.Email;
 using Expenses.Data.Access.Database;
 using Expenses.Data.Access.Queries.Authentication;
 using Expenses.Data.Access.Queries.Authentication.Credentials;
 using Expenses.Data.Model.Authentication.Credentials;
 using Expenses.Data.Model.Lookups.Authentication.Credentials;
 using MediatR;
+using Microsoft.Extensions.Options;
 using System;
 using System.Text;
 using System.Threading;
@@ -17,11 +20,16 @@ namespace Expenses.API.Handlers.Authentication.Credentials
     public class GeneratePasswordResetTokenRequestHandler
         : IRequestHandler<GeneratePasswordResetTokenRequest, GeneratePasswordResetResponse>
     {
-        public IExpenseDatabase Database;
+        private readonly IExpenseDatabase Database;
+        private readonly IOptionsSnapshot<EmailCredentials> credentials;
 
-        public GeneratePasswordResetTokenRequestHandler(IExpenseDatabase database)
+        public GeneratePasswordResetTokenRequestHandler(
+            IExpenseDatabase database,
+            IOptionsSnapshot<EmailCredentials> credentials
+        )
         {
             this.Database = database;
+            this.credentials = credentials;
         }
 
         public async Task<GeneratePasswordResetResponse> Handle(GeneratePasswordResetTokenRequest request, CancellationToken cancellationToken)
@@ -42,6 +50,8 @@ namespace Expenses.API.Handlers.Authentication.Credentials
             await this.Database.PrepareAndExecute(new InsertNewCredentialQuery(), credential);
 
             // send email to user
+            var message = EmailMessage.ResetPassword($"/reset/{token}");
+            Email.SendTo(this.credentials.Value, message, user);
 
             return new GeneratePasswordResetResponse() { IsSuccess = true };
         }

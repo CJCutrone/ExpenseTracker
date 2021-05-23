@@ -1,4 +1,5 @@
 using Expenses.API;
+using Expenses.API.Utilities.Credentials.Configuration;
 using Expenses.API.Utilities.MediatR;
 using Expenses.Data.Access.Database;
 using FluentValidation;
@@ -53,6 +54,10 @@ namespace Expenses
 
             services
                 .AddScoped<IExpenseDatabase, ExpenseConnection>();
+
+            services
+                .AddOptions<EmailCredentials>()
+                .Bind(this.configuration.GetSection("EmailCredentials"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

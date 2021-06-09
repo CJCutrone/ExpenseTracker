@@ -58,6 +58,9 @@ namespace Expenses
             services
                 .AddOptions<EmailCredentials>()
                 .Bind(this.configuration.GetSection("EmailCredentials"));
+
+            services
+                .AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

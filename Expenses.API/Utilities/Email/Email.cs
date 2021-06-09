@@ -10,11 +10,14 @@ namespace Expenses.API.Utilities.Email
         public static void SendTo(this EmailCredentials credentials, EmailMessage email, User recipient)
         {
             var mySmtpClient = new SmtpClient(credentials.Client);
-            var basicAuthenticationInfo = new NetworkCredential(credentials.Username, credentials.Password);
+            var networkCredentials = new NetworkCredential(credentials.Username, credentials.Password);
 
             // set smtp-client with basicAuthentication
             mySmtpClient.UseDefaultCredentials = false;
-            mySmtpClient.Credentials = basicAuthenticationInfo;
+            mySmtpClient.Credentials = networkCredentials;
+            mySmtpClient.EnableSsl = true;
+            mySmtpClient.Port = credentials.Port;
+            mySmtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 
             // add from,to mailaddresses
             var from = new MailAddress(credentials.Username, "Expenses");
